@@ -2,12 +2,6 @@
 
 This repository contains Verilog modules and testbenches developed for digital design lab practice. The goal is to reinforce concepts like register files, RAMs, and simulation workflows using Verilog HDL.
 
-## 🧪 Modules
-
-- `reg_file_32bit.v`: 32-bit register file with two read ports and one write port.
-- `ram_mem_32bit.v`: 32-location, 32-bit wide synchronous RAM.
-- `tb.v`: Testbenches for verifying functionality of the above modules.
-
 ## 🛠 Tools
 
 - **Verilog HDL**
@@ -16,22 +10,32 @@ This repository contains Verilog modules and testbenches developed for digital d
 
 ## ▶️ How to Run
 
-1. **Compile the testbench:**
-   ```bash
-   iverilog -o tb.vvp tb.v
+### 1. Compile the Testbench
+
+```bash
+iverilog -o out.vvp tb_name.v
 ````
 
-2. **Run the simulation:**
+### 2. Run the Simulation
 
-   ```bash
-   vvp tb.vvp
-   ```
+```bash
+vvp out.vvp
+```
 
-3. **View waveform:**
+### 3. Add VCD Dump to Testbench
 
-   ```bash
-   gtkwave reg_file.vcd
-   ```
+Add the following inside the `initial` block of your testbench:
+
+```verilog
+$dumpfile("name.vcd");
+$dumpvars(0, tb);
+```
+
+### 4. View the Waveform
+
+```bash
+gtkwave name.vcd
+```
 
 ## 📚 Purpose
 
