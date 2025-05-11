@@ -4,13 +4,14 @@
 module tb;
 
     reg [31:0] in;
-    reg CLK, reset;
+    reg CLK, reset, en;
     wire [31:0] out;
 
     reg_file uut (
         .in(in),
         .CLK(CLK),
         .reset(reset),
+        .en(en),
         .out(out)
     );
 
@@ -22,6 +23,7 @@ module tb;
         $dumpvars(0, tb);
         
         reset = 1;
+        en = 1;
         CLK = 0;
         #10; reset = 0; in = 0;
         #10; in = 1;

@@ -3,14 +3,14 @@
 
 module tb;
     reg [1:0] A, B;
-    reg Cin;
+    reg cin;
     wire [1:0] sum;
     wire cout;
     
-    full_adder_proc uut (
+    full_adder_2bit uut (
         .A(A),
         .B(B),
-        .Cin(Cin),
+        .cin(cin),
         .sum(sum),
         .cout(cout)
     );
@@ -20,9 +20,9 @@ module tb;
         $dumpfile("full_adder.vcd");
         $dumpvars(0, tb);
 
-        A = 2'd0; B = 2'd0; Cin = 0;
-        #10; A = 2'd1; B = 2'd2; Cin = 0;
-        #10; A = 2'd1; B = 2'd1; Cin = 0;
+        A = 2'd0; B = 2'd0; cin = 0;
+        #10; A = 2'd1; B = 2'd2; cin = 0;
+        #10; A = 2'd1; B = 2'd1; cin = 0;
         
         #10; $finish;
             
